@@ -158,3 +158,12 @@ where p1.price =(
 	from Products p2
     where p2.product_id=p1.product_id
 );
+
+-- 9 
+SELECT DISTINCT c.full_name
+FROM Customers c
+JOIN `Orders` o ON c.customer_id = o.customer_id
+JOIN Order_Details od ON o.order_id = od.order_id
+JOIN Products p ON od.product_id = p.product_id
+JOIN Categorys cat ON p.category_id = cat.category_id
+WHERE cat.category_name = 'Điện tử';
